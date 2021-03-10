@@ -60,7 +60,7 @@ class EggTimerFragment : Fragment() {
         // Step 1.6 START create a channel
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val notificationChannel =
-                NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW)
+                NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
 
             notificationChannel.apply {
                 enableLights(true)
