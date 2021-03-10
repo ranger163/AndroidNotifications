@@ -16,6 +16,9 @@
 
 package me.inassar.androidnotifications.ui
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,7 +53,23 @@ class EggTimerFragment : Fragment() {
     }
 
     private fun createChannel(channelId: String, channelName: String) {
-        // TODO: Step 1.6 START create a channel
+        // Step 1.6 START create a channel
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            val notificationChannel =
+                NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW)
+
+            notificationChannel.apply {
+                enableLights(true)
+                lightColor = Color.RED
+                enableVibration(true)
+                description = "Time for breakfast"
+            }
+
+            val notificationManager =
+                requireActivity().getSystemService(NotificationManager::class.java)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
+
 
         // TODO: Step 1.6 END create a channel
 
