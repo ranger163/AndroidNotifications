@@ -24,6 +24,7 @@ import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
 import me.inassar.androidnotifications.MainActivity
 import me.inassar.androidnotifications.R
+import me.inassar.androidnotifications.receiver.SnoozeReceiver
 
 // Notification ID.
 private val NOTIFICATION_ID = 0
@@ -58,6 +59,11 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         .bigLargeIcon(null)
 
     // TODO: Step 2.2 add snooze action
+    val snoozeIntent = Intent(applicationContext, SnoozeReceiver::class.java)
+    val snoozePendingIntent = PendingIntent.getBroadcast(
+        applicationContext, NOTIFICATION_ID, snoozeIntent,
+        FLAGS
+    )
 
     // Step 1.2 get an instance of NotificationCompat.Builder
     val builder = NotificationCompat.Builder(
