@@ -20,6 +20,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
 import me.inassar.androidnotifications.MainActivity
 import me.inassar.androidnotifications.R
@@ -48,6 +49,7 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     )
 
     // TODO: Step 2.0 add style
+    val eggImg = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.cooked_egg)
 
     // TODO: Step 2.2 add snooze action
 
