@@ -35,7 +35,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import me.inassar.androidnotifications.R
 import me.inassar.androidnotifications.receiver.AlarmReceiver
-import me.inassar.androidnotifications.util.sendNotification
 
 class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
 
@@ -133,7 +132,12 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
 //                ) as NotificationManager
 //                notificationManager.sendNotification(app.getString(R.string.timer_running), app)
 
-                // TODO: Step 1.15 call cancel notification
+                // Step 1.15 call cancel notification
+                val notificationManager = ContextCompat.getSystemService(
+                    app,
+                    NotificationManager::class.java
+                ) as NotificationManager
+                notificationManager.cancelAll()
 
                 AlarmManagerCompat.setExactAndAllowWhileIdle(
                     alarmManager,
