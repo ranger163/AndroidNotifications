@@ -18,7 +18,9 @@ package me.inassar.androidnotifications.util
 
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import androidx.core.app.NotificationCompat
+import me.inassar.androidnotifications.MainActivity
 import me.inassar.androidnotifications.R
 
 // Notification ID.
@@ -35,7 +37,8 @@ private val FLAGS = 0
 fun NotificationManager.sendNotification(messageBody: String, applicationContext: Context) {
     // Create the content intent for the notification, which launches
     // this activity
-    // TODO: Step 1.11 create intent
+    // Step 1.11 create intent
+    val contentIntent = Intent(applicationContext, MainActivity::class.java)
 
     // TODO: Step 1.12 create PendingIntent
 
