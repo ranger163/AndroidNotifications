@@ -63,7 +63,9 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         .setContentTitle(applicationContext.getString(R.string.notification_title))
         .setContentText(messageBody)
 
-    // TODO: Step 1.13 set content intent
+        // Step 1.13 set content intent
+        .setContentIntent(pendingIntent)
+        .setAutoCancel(true)
 
     // TODO: Step 2.1 add style to builder
 
