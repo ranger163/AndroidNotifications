@@ -20,7 +20,6 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import me.inassar.androidnotifications.R
 import me.inassar.androidnotifications.util.sendNotification
@@ -39,7 +38,7 @@ class AlarmReceiver : BroadcastReceiver() {
             ) as NotificationManager
 
         notificationManager.sendNotification(
-            context.getString(R.string.timer_running),
+            context.getString(R.string.notification_text),
             context
         )
     }
