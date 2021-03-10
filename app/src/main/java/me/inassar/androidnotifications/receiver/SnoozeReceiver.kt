@@ -26,6 +26,7 @@ import android.os.SystemClock
 import android.text.format.DateUtils
 import androidx.core.app.AlarmManagerCompat
 import androidx.core.content.ContextCompat
+import me.inassar.androidnotifications.util.cancelNotifications
 
 class SnoozeReceiver : BroadcastReceiver() {
     private val REQUEST_CODE = 0
@@ -52,7 +53,7 @@ class SnoozeReceiver : BroadcastReceiver() {
             context,
             NotificationManager::class.java
         ) as NotificationManager
-        notificationManager.cancelAll()
+        notificationManager.cancelNotifications()
     }
 
 }
