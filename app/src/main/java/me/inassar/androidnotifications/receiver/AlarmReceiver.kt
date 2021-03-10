@@ -39,7 +39,7 @@ class AlarmReceiver : BroadcastReceiver() {
             ) as NotificationManager
 
         notificationManager.sendNotification(
-            context.getString(R.string.egg_notification_channel_id),
+            context.getString(R.string.timer_running),
             context
         )
     }
