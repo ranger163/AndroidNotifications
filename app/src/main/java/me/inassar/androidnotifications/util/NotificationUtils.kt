@@ -17,6 +17,7 @@
 package me.inassar.androidnotifications.util
 
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
@@ -40,7 +41,11 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     // Step 1.11 create intent
     val contentIntent = Intent(applicationContext, MainActivity::class.java)
 
-    // TODO: Step 1.12 create PendingIntent
+    // Step 1.12 create PendingIntent
+    val pendingIntent = PendingIntent.getActivity(
+        applicationContext, NOTIFICATION_ID, contentIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT
+    )
 
     // TODO: Step 2.0 add style
 
