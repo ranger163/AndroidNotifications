@@ -18,6 +18,8 @@ package me.inassar.androidnotifications.util
 
 import android.app.NotificationManager
 import android.content.Context
+import androidx.core.app.NotificationCompat
+import me.inassar.androidnotifications.R
 
 // Notification ID.
 private val NOTIFICATION_ID = 0
@@ -42,7 +44,10 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     // TODO: Step 2.2 add snooze action
 
     // TODO: Step 1.2 get an instance of NotificationCompat.Builder
-    // Build the notification
+    val builder = NotificationCompat.Builder(
+        applicationContext,
+        applicationContext.getString(R.string.egg_notification_channel_id)
+    )
 
     // TODO: Step 1.8 use the new 'breakfast' notification channel
 
