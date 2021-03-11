@@ -26,25 +26,25 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.messaging.FirebaseMessaging
 import me.inassar.androidnotifications.R
 import me.inassar.androidnotifications.databinding.FragmentEggTimerBinding
 
-class EggTimerFragment : Fragment() {
+private const val TOPIC = "breakfast"
 
-    private val TOPIC = "breakfast"
+class EggTimerFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val binding: FragmentEggTimerBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_egg_timer, container, false
         )
 
-        val viewModel = ViewModelProviders.of(this).get(EggTimerViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(EggTimerViewModel::class.java)
 
         binding.eggTimerViewModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
@@ -87,8 +87,7 @@ class EggTimerFragment : Fragment() {
             notificationManager.createNotificationChannel(notificationChannel)
         }
 
-
-        // TODO: Step 1.6 END create a channel
+        // Step 1.6 END create a channel
 
     }
 
