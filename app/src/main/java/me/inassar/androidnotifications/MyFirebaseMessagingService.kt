@@ -35,15 +35,19 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: ${remoteMessage.from}")
 
-        // TODO Step 3.5 check messages for data
+        // Step 3.5 check messages for data
         // Check if message contains a data payload.
         remoteMessage.data.let {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
         }
 
 
-        // TODO Step 3.6 check messages for notification and call sendNotification
+        // Step 3.6 check messages for notification and call sendNotification
         // Check if message contains a notification payload.
+        remoteMessage.notification.let {
+            Log.d(TAG, "Message Notification Body: ${it?.body}")
+            sendNotification(it?.body as String)
+        }
     }
 
     // [END receive_message]
