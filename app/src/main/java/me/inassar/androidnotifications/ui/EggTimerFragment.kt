@@ -61,6 +61,9 @@ class EggTimerFragment : Fragment() {
             getString(R.string.breakfast_notification_channel_name)
         )
 
+        // Step 3.4 call subscribe topics on start
+        subscribeTopic()
+
         return binding.root
     }
 
